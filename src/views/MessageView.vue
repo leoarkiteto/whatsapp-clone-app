@@ -8,6 +8,7 @@
 <template>
   <div class="ml-[420px] w-full">
     <div class="w-full">
+      <div id="BG"></div>
       <div class="w-full border-l border-green-500">
         <div
           class="fixed z-10 flex min-w-[calc(100vw-420px)] items-center justify-between bg-[#f0f0f0] p-2">
@@ -75,3 +76,13 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+  #BG {
+    background: url("message-bg.png") center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+  }
+</style>

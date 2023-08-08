@@ -54,7 +54,7 @@
         <div class="grid h-screen place-items-center">
           <div>
             <div class="flex w-full items-center justify-center">
-              <img alt="" src="https://picsum.photos/id/12/375" width="375" />
+              <img alt="" src="w-web-not-loaded-chat.png" width="375" />
             </div>
             <p class="mt-10 text-[32px] font-light text-gray-500">
               WhatsApp Web
