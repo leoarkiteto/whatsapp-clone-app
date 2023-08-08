@@ -3,13 +3,24 @@
   import AccountGroup from "vue-material-design-icons/AccountGroup.vue";
   import DotsVertical from "vue-material-design-icons/DotsVertical.vue";
   import Magnify from "vue-material-design-icons/Magnify.vue";
+  import { storeToRefs } from "pinia";
 
   import ChatsView from "@/views/ChatsView.vue";
   import MessageView from "@/views/MessageView.vue";
   import FindFriendsView from "@/views/FindFriendsView.vue";
+  import { useUserStore } from "@/stores/user";
+  import router from "@/router";
 
+  const useStore = useUserStore();
+  const { picture, lastName, sub, firstName, email } = storeToRefs(useStore);
   const open = ref(true);
   const showFindFriends = ref(false);
+
+  function logout() {
+    const res = confirm("Are you sure you want to logout?");
+    if (res) useStore.logout();
+    router.push("/login");
+  }
 </script>
 
 <template>
@@ -18,13 +29,16 @@
       <div
         class="flex w-full items-center justify-between bg-[#f0f0f0] px-3 py-2">
         <img
+          :src="picture || 'https://picsum.photos/id/78/100'"
           alt=""
-          class="ml-1 w-10 rounded-full"
-          src="https://picsum.photos/100" />
+          class="ml-1 w-10 rounded-full" />
 
         <div class="flex items-center justify-center">
           <AccountGroup class="mr-6" fill-color="#515151" />
-          <DotsVertical class="cursor-pointer" fill-color="#515151" />
+          <DotsVertical
+            class="cursor-pointer"
+            fill-color="#515151"
+            @click="logout" />
         </div>
       </div>
 

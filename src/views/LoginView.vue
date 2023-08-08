@@ -1,17 +1,14 @@
 <script lang="ts" setup>
   import type { CallbackTypes } from "vue3-google-login";
-  import axios from "axios";
+  import { useUserStore } from "@/stores/user";
+  import router from "@/router";
 
+  const useStore = useUserStore();
   const callback: CallbackTypes.CredentialCallback = async response => {
-    console.log(response);
-
-    try {
-      const res = await axios.post("http://localhost:4001/api/google-login", {
-        token: response.credential,
-      });
-    } catch (e) {
-      console.error(e);
-    }
+    await useStore.getUserDetailsFromGoogle(response);
+    setTimeout(() => {
+      router.push("/");
+    }, 200);
   };
 </script>
 
