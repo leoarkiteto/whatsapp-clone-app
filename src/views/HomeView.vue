@@ -6,8 +6,10 @@
 
   import ChatsView from "@/views/ChatsView.vue";
   import MessageView from "@/views/MessageView.vue";
+  import FindFriendsView from "@/views/FindFriendsView.vue";
 
   const open = ref(true);
+  const showFindFriends = ref(false);
 </script>
 
 <template>
@@ -43,7 +45,12 @@
       </div>
     </div>
 
-    <ChatsView class="mt-[100px]" />
+    <div v-if="showFindFriends">
+      <ChatsView class="mt-[100px]" />
+    </div>
+    <div v-else>
+      <FindFriendsView class="pt-28" />
+    </div>
 
     <div v-if="open">
       <MessageView />

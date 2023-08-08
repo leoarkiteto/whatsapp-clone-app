@@ -1,4 +1,19 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import type { CallbackTypes } from "vue3-google-login";
+  import axios from "axios";
+
+  const callback: CallbackTypes.CredentialCallback = async response => {
+    console.log(response);
+
+    try {
+      const res = await axios.post("http://localhost:4001/api/google-login", {
+        token: response.credential,
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+</script>
 
 <template>
   <div class="w-full">
@@ -17,7 +32,7 @@
           WhatsApp Clone
         </p>
         <div class="flex w-full justify-center rounded-md bg-[#191919] p-3">
-          <GoogleLogin />
+          <GoogleLogin :callback="callback" />
         </div>
       </div>
     </div>
