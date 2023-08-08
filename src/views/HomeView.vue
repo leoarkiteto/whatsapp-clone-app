@@ -2,6 +2,8 @@
   import AccountGroup from "vue-material-design-icons/AccountGroup.vue";
   import DotsVertical from "vue-material-design-icons/DotsVertical.vue";
   import Magnify from "vue-material-design-icons/Magnify.vue";
+
+  import ChatsView from "@/views/ChatsView.vue";
 </script>
 
 <template>
@@ -38,5 +40,23 @@
     </div>
 
     <ChatsView class="mt-[100px]" />
+
+    <div
+      class="fixed ml-[420px] h-screen w-[calc(100vw-420px)] bg-gray-100 text-center">
+      <div class="grid h-screen place-items-center">
+        <div>
+          <div class="flex w-full items-center justify-center">
+            <img alt="" src="https://picsum.photos/id/12/375" width="375" />
+          </div>
+          <p class="mt-10 text-[32px] font-light text-gray-500">WhatsApp Web</p>
+          <p class="mt-2 text-[14px] text-gray-600">
+            Send and receive messages without keeping your phone online.
+          </p>
+          <p class="mt-2 text-[14px] text-gray-600">
+            Use WhatsApp on up to 4 linked devices and 1 phone at the same time.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
