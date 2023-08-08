@@ -1,3 +1,5 @@
 <script lang="ts" setup></script>
 
-<template>App View</template>
+<template>
+  <router-view />
+</template>
